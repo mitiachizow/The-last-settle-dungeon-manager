@@ -16,15 +16,14 @@ public class InputManager : MonoBehaviour
     {
         Vector3 mousePosition = Input.mousePosition;
         mousePosition.z = sceneCamera.nearClipPlane;
-        //Debug.Log(mousePosition);
 
+        
         Ray ray = sceneCamera.ScreenPointToRay(mousePosition);
         RaycastHit hit;
 
-        if(Physics.Raycast(ray,out hit, 100, layerMask))
+        if(Physics.Raycast(ray,out hit, 10000, layerMask))
         {
             lastPosition = hit.point;
-            //Debug.Log(hit.distance);
         }
         return lastPosition;
     }
